@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISO-VFI: A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.4.0/github-markdown-light.css" integrity="sha512-3URHN+jrKepHkCgkuRBjRqyCGnfDnpGsJLMC2wviO9W/xkl80EXcBbMFVrYPtzcTh2NW4snErsxqcv2ZNHmmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        .container {
+            width: 90%;
+            max-width: 720px;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        a {
+            all: unset;
+            cursor: pointer;
+            color:#0366d6;
+        }
+        h1 {
+            padding: 10px 0 20px 0;
+            font-weight: 400;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        p {
+            line-height: 28px;
+        }
+        p.abs {
+            padding: 30px 0;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container markdown-body">
+        <h1 align="center">MISO-VFI: A Multi-In-Single-Out Network </br>for Video Frame Interpolation without Optical Flow</h1>
+        <h3 align="center" style="line-height:30px"><a href="https://cv.j911.me">Jaemin Lee</a>, <a href="https://sites.google.com/view/minseokcv">Minseok Seo</a>, <a  href="https://airlab.hanbat.ac.kr/theme/AiRLab_theme/member_cv/CV_sangwoo.pdf">Sangwoo Lee</a>, 
+        <br><a href="https://github.com/hbp001">Hyobin Park</a>, <a href="https://airlab.hanbat.ac.kr/members.php">Dong-Geol Choi</a></h3>
+        
+        <h4 align="center"><a href="https://github.com/j911/MISO-VFI">Code</a>, <a href="https://arxiv.org/abs/2311.11602">Arxiv</a></h4>
+        <h3>Abstract</h3>
+        <img align="center" style="width: 100%" src="./assets/teaser.jpg"></img>
+        <p align="justify" class="abs">In general, deep learning-based video frame interpolation (VFI) methods have predominantly focused on estimating motion vectors between two input frames and warping them to the target time. While this approach has shown impressive performance for linear motion between two input frames, it exhibits limitations when dealing with occlusions and nonlinear movements. Recently, generative models have been applied to VFI to address these issues. However, as VFI is not a task focused on generating plausible images, but rather on predicting accurate intermediate frames between two given frames, performance limitations still persist. In this paper, we propose a multi-in-single-out (MISO) based VFI method that does not rely on motion vector estimation, allowing it to effectively model occlusions and nonlinear motion. Additionally, we introduce a novel motion perceptual loss that enables MISO-VFI to better capture the spatio-temporal correlations within the video frames. Our MISO-VFI method achieves state-of-the-art results on VFI benchmarks Vimeo90K, Middlebury, and UCF101, with a significant performance gap compared to existing approaches.</p>
+
+        <h3>Citation</h3>
+        <div class="highlight">
+            <pre>@misc{lee2023multiinsingleout,
+    title={A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow}, 
+    author={Jaemin Lee and Minseok Seo and Sangwoo Lee and Hyobin Park and Dong-Geol Choi},
+    year={2023},
+    eprint={2311.11602},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}</pre>
+        
+        <h3>Visualization</h3>
+        * The source of all the videos is <a href="http://pexels.com">pexels.com</a>.
+        <p><strong>Past-Intermediate-Future frame: 1-1-1</strong></p>
+        <img src="./assets/demo/01.gif" alt="" srcset="">
+        <img src="./assets/demo/03.gif" alt="" srcset="">
+        <img src="./assets/demo/05.gif" alt="" srcset="">
+        <p><strong>Past-Intermediate-Future frame: 2-3-2</strong></p>
+        <img src="./assets/demo/02.gif" alt="" srcset="">
+        <img src="./assets/demo/04.gif" alt="" srcset="">
+        <img src="./assets/demo/06.gif" alt="" srcset="">
+    </div>
+
+    </div>
+    </body>
+</html>
