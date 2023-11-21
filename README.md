@@ -37,10 +37,10 @@ We used [Xue, Tianfan, et al.](http://toflow.csail.mit.edu/index.html)'s Dataset
 ```bash
 $ mkdir /data
 $ cd /data
-$ wget http://data.csail.mit.edu/tofu/dataset/vimeo_septuplet.zip # (82G) # For 2-3-2
+$ wget http://data.csail.mit.edu/tofu/dataset/vimeo_septuplet.zip # (82G) For 2-3-2
 $ unzip vimeo_septuplet.zip
 # or
-$ wget http://data.csail.mit.edu/tofu/dataset/vimeo_triplet.zip# (33G) # For 1-1-1
+$ wget http://data.csail.mit.edu/tofu/dataset/vimeo_triplet.zip # (33G) For 1-1-1
 $ unzip vimeo_septuplet.zip
 ```
 
