@@ -21,14 +21,15 @@
 ```
 
 ### How to use?
-> **Code will be uploaded soon!**
-
 #### Requirements
-- pytorch == 1.10.0
-- torchvision
+- torch==1.10.0
+- torchvision==0.11.0
+- einops
 - timm
-- imageio-ffmpeg
+- imageio
+- scikit-image
 - numpy
+- opencv-python
 
 #### Datasets
 **Vimeo90K datasets**
@@ -50,17 +51,22 @@ $ unzip vimeo_septuplet.zip
 $ python main.py --dataname vimeo --epochs 100 --batch_size 8 --test_batch_size 8 --vgg_loss True --perceptual True --mars_weight ./weights/kinetics-pretrained.pth --num_workers 16 --ex_name vimeo_exp --lr 0.001 --gpu 0,1,2,3 --data_root /data/vimeo_septuplet
 ```
 
-`MARS Kinetics pre-trained weight` can get from [Google Drive](#) (we referred to the model of [MARS](https://github.com/craston/MARS).)
+`MARS Kinetics pre-trained weight` can get from [Google Drive](https://drive.google.com/file/d/1LQSydfzXnBR8L_nOyEbqZK9PY-nHrPJR/view?usp=sharing) (we referred to the model of [MARS](https://github.com/craston/MARS).)
 
 **evaluation**
 ```bash
-$ python test.py --dataname vimeo --test_batch_size 4 --num_workers 16 --weight ./weights/vimeo-pretrained.pth --gpu 0,1,2,3 --data_root /data/vimeo_septuplet
+$ python test.py --dataname vimeo --test_batch_size 4 --num_workers 16 --weight ./weights/vimeo-pretrained.pth --gpu 0,1,2,3 --data_root /data/vimeo_septuplet # 2-3-2
 
 # ---
 # Results
 # test mse:416.0105, mae:4615.9648, ssim:0.9552, psnr:37.19
+
+$ python test.py --dataname vimeo-triplet --test_batch_size 4 --num_workers 16 --weight ./weights/vimeo-pretrained.pth --gpu 0,1,2,3 --data_root /data/vimeo_triplet --out_frame 1 --in_shape 2 3 256 448 # 1-1-1
+# ---
+# Results
+# test mse:265.0867, mae:3629.9888, ssim:0.9693, psnr:38.1864
 ```
-If you want to get the vimeo90K pre-trained weight, Access this [Google Drive](#).
+If you want to get the vimeo90K pre-trained weight(1-1-1), Access this [Google Drive](https://drive.google.com/file/d/1LM14yracwLNIUmJp7w8OEdl2MWFtg75X/view?usp=sharing).
 
 ### Thanks to
 - This code is heavily borrowed from [SimVP](https://github.com/gaozhangyang/SimVP-Simpler-yet-Better-Video-Prediction).
