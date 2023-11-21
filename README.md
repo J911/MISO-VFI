@@ -2,7 +2,7 @@
 <h3 align="center" style="line-height:30px"><a href="https://cv.j911.me">Jaemin Lee</a>, <a href="https://sites.google.com/view/minseokcv">Minseok Seo</a>, <a  href="https://airlab.hanbat.ac.kr/theme/AiRLab_theme/member_cv/CV_sangwoo.pdf">Sangwoo Lee</a>, 
 <br><a href="https://github.com/hbp001">Hyobin Park</a>, <a href="https://airlab.hanbat.ac.kr/members.php">Dong-Geol Choi</a></h3>
 
-<h4 align="center"><a href="https://j911.github.io/MISO-VFI">Project Page</a>, <a href="https://arxiv.org/">Arxiv</a></h4>
+<h4 align="center"><a href="https://j911.github.io/MISO-VFI">Project Page</a>, <a href="https://arxiv.org/abs/2311.11602">Arxiv</a></h4>
 
 ### Abstract
 <img align="center" style="width: 100%" src="./assets/teaser.jpg"></img>
@@ -10,7 +10,14 @@
 
 ### Citation
 ```bib
-TBD
+@misc{lee2023multiinsingleout,
+    title={A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow}, 
+    author={Jaemin Lee and Minseok Seo and Sangwoo Lee and Hyobin Park and Dong-Geol Choi},
+    year={2023},
+    eprint={2311.11602},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
 ```
 
 ### How to use?
