@@ -64,12 +64,12 @@ $ python test.py --dataname vimeo --test_batch_size 4 --num_workers 16 --weight 
 
 # ---
 # Results
-# test mse:416.0105, mae:4615.9648, ssim:0.9552, psnr:37.19
+# test ssim:0.9552, psnr:37.19
 
 $ python test.py --dataname vimeo-triplet --test_batch_size 4 --num_workers 16 --weight ./weights/vimeo-pretrained.pth --gpu 0,1,2,3 --data_root /data/vimeo_triplet --out_frame 1 --in_shape 2 3 256 448 # 1-1-1
 # ---
 # Results
-# test mse:265.0867, mae:3629.9888, ssim:0.9693, psnr:38.1864
+# test ssim:0.9693, psnr:38.1864
 ```
 If you want to get the vimeo90K pre-trained weight(1-1-1), Access this [Google Drive](https://drive.google.com/file/d/1LM14yracwLNIUmJp7w8OEdl2MWFtg75X/view?usp=sharing).
 
