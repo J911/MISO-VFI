@@ -40,17 +40,17 @@ def create_parser():
 
     return parser
 
-def test(model, device, test_loader, data_mean, data_std):
+def test(model, device, test_loader, data_mean, data_std, args):
     model.eval()
     preds_lst, trues_lst, total_loss = [], [], []
     test_pbar = tqdm(test_loader)
-    indicator = (self.args.in_shape[0]//2)
+    indicator = (args.in_shape[0]//2)
     for i, (batch_x, batch_y) in enumerate(test_pbar):
         batch_x, batch_y = batch_x.to(device), batch_y.to(device)
         batch_in = torch.cat([batch_x[:,:indicator,:,:,:], batch_y], dim=1)
         batch_out = batch_x[:,indicator:,:,:,:]
         pred_list = []
-        for time in range(self.args.out_frame):
+        for time in range(args.out_frame):
             time = torch.tensor(time*100).repeat(batch_x.shape[0]).cuda()
             pred_y = model(batch_in, time)
             pred_list.append(pred_y.unsqueeze(1).detach().cpu())
@@ -64,8 +64,8 @@ def test(model, device, test_loader, data_mean, data_std):
     preds = np.concatenate(preds_lst, axis=0)
     trues = np.concatenate(trues_lst, axis=0)
 
-    mse, mae, ssim, psnr = metric(preds, trues,  data_mean, data_std, True)
-    print_log('test mse:{:.4f}, mae:{:.4f}, ssim:{:.4f}, psnr:{:.4f}'.format(mse, mae, ssim, psnr))
+    _, _, ssim, psnr = metric(preds, trues,  data_mean, data_std, True)
+    print_log('test ssim:{:.4f}, psnr:{:.4f}'.format(ssim, psnr))
 
 def build_model(args):
     model = MISO(tuple(args.in_shape), args.hid_S,
@@ -84,4 +84,4 @@ if __name__ == '__main__':
     train_loader, test_loader, data_mean, data_std = load_data(**config)
     model = build_model(args)
     torch.backends.cudnn.benchmark = False
-    test(model, args.device, test_loader, data_mean, data_std)
+    test(model, args.device, test_loader, data_mean, data_std, args)

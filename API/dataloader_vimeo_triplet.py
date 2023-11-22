@@ -27,8 +27,7 @@ class VIMEO(data.Dataset):
         else:
             with open(os.path.join(self.root, 'tri_testlist.txt'), 'r') as txt:
                 for line in txt:
-                    self.sequence_list.append(os.path.join(self.root, 'input', line.strip()))
-                    self.target_list.append(os.path.join(self.root, 'target', line.strip()))
+                    self.sequence_list.append(os.path.join(self.root, 'sequences', line.strip()))
 
 
     def __len__(self):
@@ -37,10 +36,7 @@ class VIMEO(data.Dataset):
     def __getitem__(self, idx):
         frames = []
         for img_idx in range(1, 4):
-            if img_idx == 2:
-                _img = cv2.cvtColor(cv2.imread(os.path.join(self.target_list[idx], f'im{str(img_idx)}.png')), cv2.COLOR_BGR2RGB)
-            else:
-                _img = cv2.cvtColor(cv2.imread(os.path.join(self.sequence_list[idx], f'im{str(img_idx)}.png')), cv2.COLOR_BGR2RGB)
+            _img = cv2.cvtColor(cv2.imread(os.path.join(self.sequence_list[idx], f'im{str(img_idx)}.png')), cv2.COLOR_BGR2RGB)
             _img = Image.fromarray(_img)
             _img = transforms.ToTensor()(_img).unsqueeze(0)
             frames.append(_img)
@@ -63,5 +59,5 @@ def load_data(
         test_set, batch_size=test_batch_size, shuffle=False, pin_memory=True, num_workers=num_workers)
 
     mean, std = 0, 255
-    #return dataloader_train, dataloader_test, mean, std
+    
     return dataloader_train, dataloader_test, mean, std
