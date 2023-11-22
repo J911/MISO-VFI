@@ -15,13 +15,11 @@
 
 ### Citation
 ```bib
-@misc{lee2023multiinsingleout,
-    title={A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow}, 
-    author={Jaemin Lee and Minseok Seo and Sangwoo Lee and Hyobin Park and Dong-Geol Choi},
-    year={2023},
-    eprint={2311.11602},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@article{lee2023multi,
+  title={A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow},
+  author={Lee, Jaemin and Seo, Minseok and Lee, Sangwoo and Park, Hyobin and Choi, Dong-Geol},
+  journal={arXiv preprint arXiv:2311.11602},
+  year={2023}
 }
 ```
 
