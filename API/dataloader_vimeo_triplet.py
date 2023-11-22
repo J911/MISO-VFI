@@ -21,7 +21,7 @@ class VIMEO(data.Dataset):
         self.sequence_list = []
         self.target_list = []
         if self.is_train:
-            with open(os.path.join(self.root, 'sep_trainlist.txt'), 'r') as txt:
+            with open(os.path.join(self.root, 'tri_trainlist.txt'), 'r') as txt:
                 for line in txt:
                     self.sequence_list.append(os.path.join(self.root, 'sequences', line.strip()))
         else:
@@ -54,14 +54,14 @@ def load_data(
         data_root, num_workers):
 
 
-    #train_set = VIMEO(root=data_root, is_train=True, n_frames_input=10, n_frames_output=5)
+    train_set = VIMEO(root=data_root, is_train=True, n_frames_input=10, n_frames_output=5)
     test_set = VIMEO(root=data_root, is_train=False, n_frames_input=10, n_frames_output=5)
 
-    #dataloader_train = torch.utils.data.DataLoader(
-    #    train_set, batch_size=batch_size, shuffle=True, pin_memory=True, num_workers=num_workers)
+    dataloader_train = torch.utils.data.DataLoader(
+        train_set, batch_size=batch_size, shuffle=True, pin_memory=True, num_workers=num_workers)
     dataloader_test = torch.utils.data.DataLoader(
         test_set, batch_size=test_batch_size, shuffle=False, pin_memory=True, num_workers=num_workers)
 
     mean, std = 0, 255
     #return dataloader_train, dataloader_test, mean, std
-    return True, dataloader_test, mean, std
+    return dataloader_train, dataloader_test, mean, std
