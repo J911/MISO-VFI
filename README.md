@@ -72,7 +72,7 @@ $ python test.py --dataname vimeo-triplet --test_batch_size 4 --num_workers 16 -
 If you want to get the vimeo90K pre-trained weight(1-1-1), Access this [Google Drive](https://drive.google.com/file/d/1LM14yracwLNIUmJp7w8OEdl2MWFtg75X/view?usp=sharing).
 
 ### Note
-- Empirically, you can achieve higher performance with large batches and large epochs.
+- Empirically, you can achieve higher performance with large batches and large epochs.
 
 ### Thanks to
 - This code is heavily borrowed from [SimVP](https://github.com/gaozhangyang/SimVP-Simpler-yet-Better-Video-Prediction).
