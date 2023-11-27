@@ -22,7 +22,10 @@
   year={2023}
 }
 ```
-
+### Announcement 🎉
+- Nov. 2023: We achieved Rank 1 (State-of-the-art) for Vimeo90K and UCF-101 tasks in [Paperswithcode](https://paperswithcode.com/paper/a-multi-in-single-out-network-for-video-frame).
+- Nov. 2023: Pretrained models are released.
+  
 ### How to use?
 #### Requirements
 - torch==1.10.0
