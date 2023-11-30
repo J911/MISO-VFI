@@ -2,77 +2,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>MISO-VFI: A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.4.0/github-markdown-light.css" integrity="sha512-3URHN+jrKepHkCgkuRBjRqyCGnfDnpGsJLMC2wviO9W/xkl80EXcBbMFVrYPtzcTh2NW4snErsxqcv2ZNHmmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
         * {
-            margin: 0;
-            padding: 0;
             font-family: 'Lato', sans-serif;
         }
         .container {
-            width: 90%;
-            max-width: 720px;
-            max-width: 900px;
-            margin: 0 auto;
-            margin-top: 50px;
-            margin-bottom: 50px;
+            max-width: 920px;
+        }
+        .header {
+            margin: 3rem auto;
+            text-align: center;
+        }
+        .header__brand {
+            color: #dc3545;
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .header__title {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 600;
+            
+        }
+        .header__authors {
+            margin: 1.4rem auto;
+            font-weight: 300;
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+        .color--red {
+            color: #dc3545
+        }
+        .header__link {
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0 0.2rem;
         }
         a {
             all: unset;
             cursor: pointer;
-            color:#0366d6;
+            color: #216ad8 !important;
         }
-        h1 {
-            padding: 10px 0 20px 0;
-            font-weight: 400;
+        a:hover {
+            text-decoration: underline !important;
         }
-        h3 {
-            font-size: 16px;
+        .section {
+            margin: 2.4rem auto;
+        }
+        .section.abstract {
+            /* padding: 3.25vw; */
+            text-align: justify;
+            /* border-radius: 14px;
+            box-shadow: 0 0 4px rgb(175, 167, 167); */
+        }
+        .section__title {
             font-weight: 600;
+            font-size: 1.4rem;
+            /* text-align: center; */
+            line-height: 4rem;
         }
-        p {
-            line-height: 28px;
+        figure.sm {
+            display: block !important;
+            margin: 0 auto;
+            max-width: 720px
         }
-        p.abs {
-            padding: 30px 0;
+        .abstract__text {
             line-height: 30px;
+        }
+        .bibtex {
+            background-color: #ececec;
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .bibtex > pre {
+            margin-bottom: 0 !important;
+        }
+        .section__contents {
+            font-size: 1.2rem;
+            line-height: 3rem;
         }
     </style>
 </head>
 <body>
-    <div class="container markdown-body">
-        <h1 align="center">MISO-VFI: A Multi-In-Single-Out Network </br>for Video Frame Interpolation without Optical Flow</h1>
-        <h3 align="center" style="line-height:30px"><a href="https://cv.j911.me">Jaemin Lee</a>, <a href="https://sites.google.com/view/minseokcv">Minseok Seo</a>, <a  href="https://airlab.hanbat.ac.kr/theme/AiRLab_theme/member_cv/CV_sangwoo.pdf">Sangwoo Lee</a>, 
-        <br><a href="https://github.com/hbp001">Hyobin Park</a>, <a href="https://airlab.hanbat.ac.kr/members.php">Dong-Geol Choi</a></h3>
-        
-        <h4 align="center"><a href="https://github.com/j911/MISO-VFI">Code</a>, <a href="https://arxiv.org/abs/2311.11602">Arxiv</a></h4>
-        <h3>Abstract</h3>
-        <img align="center" style="width: 100%" src="./assets/teaser.jpg"></img>
-        <p align="justify" class="abs">In general, deep learning-based video frame interpolation (VFI) methods have predominantly focused on estimating motion vectors between two input frames and warping them to the target time. While this approach has shown impressive performance for linear motion between two input frames, it exhibits limitations when dealing with occlusions and nonlinear movements. Recently, generative models have been applied to VFI to address these issues. However, as VFI is not a task focused on generating plausible images, but rather on predicting accurate intermediate frames between two given frames, performance limitations still persist. In this paper, we propose a multi-in-single-out (MISO) based VFI method that does not rely on motion vector estimation, allowing it to effectively model occlusions and nonlinear motion. Additionally, we introduce a novel motion perceptual loss that enables MISO-VFI to better capture the spatio-temporal correlations within the video frames. Our MISO-VFI method achieves state-of-the-art results on VFI benchmarks Vimeo90K, Middlebury, and UCF101, with a significant performance gap compared to existing approaches.</p>
+    <div class="container">
+        <div class="header">
+            <h1 class="header__brand">MISO-VFI</h1>
+            <h2 class="header__title">A <span class="color--red">M</span>ulti-<span class="color--red">I</span>n-<span class="color--red">S</span>ingle-<span class="color--red">O</span>ut Network <br>for <span class="color--red">V</span>ideo <span class="color--red">F</span>rame <span class="color--red">I</span>nterpolation without Optical Flow</h2>
+            <h3 class="header__authors"><a href="https://cv.j911.me">Jaemin Lee</a>, <a href="https://sites.google.com/view/minseokcv">Minseok Seo</a>, </br> <a  href="https://airlab.hanbat.ac.kr/theme/AiRLab_theme/member_cv/CV_sangwoo.pdf">Sangwoo Lee</a>, <a href="https://github.com/hbp001">Hyobin Park</a>, <a href="https://airlab.hanbat.ac.kr/members.php">Dong-Geol Choi</a>†</h3>
 
-        <h3>Citation</h3>
-        <div class="highlight">
-            <pre>@article{lee2023multi,
-  title={A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow},
-  author={Lee, Jaemin and Seo, Minseok and Lee, Sangwoo and Park, Hyobin and Choi, Dong-Geol},
-  journal={arXiv preprint arXiv:2311.11602},
-  year={2023}
-}</pre>
-        
-        <h3>Visualization</h3>
-        * The source of all the videos is <a href="http://pexels.com">pexels.com</a>.
-        <p><strong>Past-Intermediate-Future frame: 1-1-1</strong></p>
-        <img src="./assets/demo/01.gif" alt="" srcset="">
-        <img src="./assets/demo/03.gif" alt="" srcset="">
-        <img src="./assets/demo/05.gif" alt="" srcset="">
-        <p><strong>Past-Intermediate-Future frame: 2-3-2</strong></p>
-        <img src="./assets/demo/02.gif" alt="" srcset="">
-        <img src="./assets/demo/04.gif" alt="" srcset="">
-        <img src="./assets/demo/06.gif" alt="" srcset="">
+            <span onclick="location.href='https://arxiv.org/abs/2311.11602'" class="header__link badge rounded-pill text-bg-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+              </svg> arxiv</span>
+            <span onclick="location.href='https://github.com/j911/MISO-VFI'" class="header__link badge rounded-pill text-bg-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+              </svg> code</span>
+        </div>
+        <figure class="figure sm">
+            <img src="./assets/teaser.jpg" class="figure-img img-fluid rounded" alt="teaser">
+        </figure>
+        <div class="section abstract">
+            <div class="section__title">abstract</div>
+              <p class="abstract__text">In general, deep learning-based video frame interpolation (VFI) methods have predominantly focused on estimating motion vectors between two input frames and warping them to the target time. While this approach has shown impressive performance for linear motion between two input frames, it exhibits limitations when dealing with occlusions and nonlinear movements. Recently, generative models have been applied to VFI to address these issues. However, as VFI is not a task focused on generating plausible images, but rather on predicting accurate intermediate frames between two given frames, performance limitations still persist. In this paper, we propose a multi-in-single-out (MISO) based VFI method that does not rely on motion vector estimation, allowing it to effectively model occlusions and nonlinear motion. Additionally, we introduce a novel motion perceptual loss that enables MISO-VFI to better capture the spatio-temporal correlations within the video frames. Our MISO-VFI method achieves state-of-the-art results on VFI benchmarks Vimeo90K, Middlebury, and UCF101, with a significant performance gap compared to existing approaches.</p>
+        </div>
+        <div class="section citation">
+            <div class="section__title">Citation</div>
+            <div class="bibtex  alert-light highlight" role="alert"><pre>@article{lee2023multi,
+    title={A Multi-In-Single-Out Network for Video Frame Interpolation without Optical Flow},
+    author={Lee, Jaemin and Seo, Minseok and Lee, Sangwoo and Park, Hyobin and Choi, Dong-Geol},
+    journal={arXiv preprint arXiv:2311.11602},
+    year={2023}
+}</pre></div>
+        </div>
+        <div class="section architecture">
+            <div class="section__title">Architecture</div>
+            <figure class="figure">
+                <img src="./assets/architecture.jpg" class="figure-img img-fluid rounded" alt="architecture">
+            </figure>
+            <p>MISO-VFI’s T-shaped architecture consists of an encoder, predictor, and decoder. The target time t is incorporated via sinusoidal positional embedding and an MLP layer. The model employs 2D perceptual loss, motion perceptual loss, and MSE loss</p>
+        </div>
+        <div class="section video-demo">
+            <div class="section__title">Video Demo</div>
+            <div class="section__contents">
+                The source of all the videos is <a>pexels.com</a>.<br>
+                P-I-F: 1-1-1
+            </div>
+            <div id="carousel_video_demo-1-1-1" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carousel_video_demo-1-1-1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carousel_video_demo-1-1-1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carousel_video_demo-1-1-1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./assets/demo/01.gif" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>P-I-F: 1-1-1</h5>
+                      <p>source: pexels.com</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./assets/demo/03.gif" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>P-I-F: 1-1-1</h5>
+                        <p>source: pexels.com</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./assets/demo/05.gif" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>P-I-F: 1-1-1</h5>
+                        <p>source: pexels.com</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel_video_demo-1-1-1" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel_video_demo-1-1-1" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <div class="section__contents">
+                P-I-F: 2-3-2
+            </div>
+            <div id="carousel_video_demo-2-3-2" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carousel_video_demo-2-3-2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carousel_video_demo-2-3-2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carousel_video_demo-2-3-2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./assets/demo/02.gif" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>P-I-F: 2-3-2</h5>
+                      <p>source: pexels.com</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./assets/demo/04.gif" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>P-I-F: 2-3-2</h5>
+                        <p>source: pexels.com</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./assets/demo/06.gif" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>P-I-F: 2-3-2</h5>
+                        <p>source: pexels.com</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel_video_demo-2-3-2" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel_video_demo-2-3-2" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
     </div>
-
-    </div>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
 </html>
