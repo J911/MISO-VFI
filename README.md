@@ -1,8 +1,3 @@
-	
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-multi-in-single-out-network-for-video-frame/video-frame-interpolation-on-ucf101-1)](https://paperswithcode.com/sota/video-frame-interpolation-on-ucf101-1?p=a-multi-in-single-out-network-for-video-frame)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-multi-in-single-out-network-for-video-frame/video-frame-interpolation-on-vimeo90k)](https://paperswithcode.com/sota/video-frame-interpolation-on-vimeo90k?p=a-multi-in-single-out-network-for-video-frame)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/a-multi-in-single-out-network-for-video-frame/video-frame-interpolation-on-middlebury)](https://paperswithcode.com/sota/video-frame-interpolation-on-middlebury?p=a-multi-in-single-out-network-for-video-frame)
-
 <h1 align="center">MISO-VFI: A Multi-In-Single-Out Network </br>for Video Frame Interpolation without Optical Flow</h1>
 <h3 align="center" style="line-height:30px"><a href="https://cv.j911.me">Jaemin Lee</a>, <a href="https://sites.google.com/view/minseokcv">Minseok Seo</a>, <a  href="https://airlab.hanbat.ac.kr/theme/AiRLab_theme/member_cv/CV_sangwoo.pdf">Sangwoo Lee</a>, 
 <br><a href="https://github.com/hbp001">Hyobin Park</a>, <a href="https://airlab.hanbat.ac.kr/members.php">Dong-Geol Choi</a></h3>
